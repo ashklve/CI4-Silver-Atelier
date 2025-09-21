@@ -8,18 +8,18 @@
     <img src="./assets/img/nyebe_white.png" alt="Nyebe" width="130" height="100">
   </a>
 <!-- * Title Section -->
-  <h3 align="center">AD - CI4 Template</h3>
+  <h3 align="center">AD - CI4 Silver Atelier</h3>
 </div>
 
 <!-- * Description Section -->
 <div align="center">
-This repository is a beginner-friendly CodeIgniter 4 template.  
-It helps teams quickly bootstrap backend + frontend projects, with simple sample modules that show how to extend the system.
+Silver Atelier is an online shop built with CodeIgniter 4.  
+It focuses on trendy clothes and stylish accessories, providing a clean shopping experience.
 </div>
 
 <br/>
 
-![](https://visit-counter.vercel.app/counter.png?page=zyx-0314/ci4-template)
+![](https://visit-counter.vercel.app/counter.png?page=ashklve/CI4-Silver-Merchandise)
 
 <!-- ! Make sure it was similar to your github -->
 
@@ -55,22 +55,18 @@ It helps teams quickly bootstrap backend + frontend projects, with simple sample
 
 ## Overview
 
-This template provides a **minimal CodeIgniter 4 project layout** with conventions for file organization, commit practices, and simple modules.
+**Silver Atelier** is an e-commerce project built with **CodeIgniter 4** and **Docker**.  
+It serves as both a learning tool and a real-world fashion shop for clothes and accessories.
 
-It is designed to be **easy to start with** and a **reference for adding new features**.
-
-* **Purpose**: a clean starting point for CI4 apps.
-* **Audience**: developers who want a predictable structure and quick onboarding.
+* **Purpose**: Deliver a simple but modern online store.  
+* **Audience**: Developers learning CI4 + Docker, and customers browsing trendy products.  
 
 ### Key Components
 
-These are **sample modules** included (or suggested) for learning how to add features:
-
-| Component                 | Purpose                                                             | Notes                                                   |
-| ------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------- |
-| **Auth (Sample)**         | Basic login/logout and role check (admin/user).                     | Uses CI4 sessions + MySQL `users` table.                |
-| **CRUD Module**           | Example entity (`Posts` or `Tasks`) with create/read/update/delete. | Demonstrates Controller → Service → Repository pattern. |
-| **Scheduler (Sample)**    | Simple to-do list with due dates.                                   | Shows how to extend with new tables and services.       |
+| Component                 | Purpose                                                    | Notes                                |
+| ------------------------- | ---------------------------------------------------------- | ------------------------------------ |
+| **Landing Page**          | Homepage with featured clothes and accessories.            | First impression of the shop.        |
+| **Product Catalog**       | Browse trendy clothes & accessories with categories.       | CRUD support in backend.             |
 
  <!-- ! Start simple. Use these modules as **learning samples**; extend or replace them based on your project’s needs. -->
 
