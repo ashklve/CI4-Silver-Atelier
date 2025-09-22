@@ -20,5 +20,4 @@ class Users extends BaseController
     {
         return view('user/signup');
     }
-
 }
