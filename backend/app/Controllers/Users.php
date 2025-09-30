@@ -20,4 +20,14 @@ class Users extends BaseController
     {
         return view('user/signup');
     }
+
+    public function terms(): string
+    {
+        return view('user/terms');
+    }
+
+    public function privacy(): string
+    {
+        return view('user/privacy');
+    }
 }
