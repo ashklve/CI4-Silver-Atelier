@@ -183,6 +183,6 @@
         </div>
     </div>
 
-    <script src="<?= base_url('js/auth.js') ?>"></script>
+    <script src="/js/auth.js"></script>
 </body>
 </html>
