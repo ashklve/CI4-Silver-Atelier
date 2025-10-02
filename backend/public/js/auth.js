@@ -1,4 +1,3 @@
-// Auth.js - Login/Signup Functionality for Silver Atelier
 
 class AuthManager {
     constructor() {
@@ -9,14 +8,14 @@ class AuthManager {
         // Initialize based on current page
         if (window.location.pathname.includes('login')) {
             this.initLogin();
-        } else if (window.location.pathname.includes('signup')) {
+        } else if (window.location.pathname.includes('signup') || window.location.pathname.includes('register')) {
             this.initSignup();
         }
     }
 
     // LOGIN FUNCTIONALITY
     initLogin() {
-        const loginForm = document.querySelector('#loginForm');
+        const loginForm = document.querySelector('form');
         const togglePassword = document.getElementById('togglePassword');
         
         if (togglePassword) {
@@ -51,8 +50,7 @@ class AuthManager {
         const loginData = {
             username: username,
             password: password,
-            remember: remember ? 1 : 0,
-            csrf_token: formData.get('csrf_token')
+            remember: remember ? 1 : 0
         };
 
         // Send login request
@@ -72,7 +70,6 @@ class AuthManager {
                 this.showMessage('An error occurred. Please try again.', 'error');
             })
             .finally(() => {
-                // Reset button
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalText;
             });
@@ -120,7 +117,7 @@ class AuthManager {
 
     // SIGNUP FUNCTIONALITY
     initSignup() {
-        const signupForm = document.querySelector('#signupForm');
+        const signupForm = document.querySelector('form');
         const passwordField = document.getElementById('password');
         const confirmPasswordField = document.getElementById('confirm_password');
         const togglePassword = document.getElementById('togglePassword');
@@ -132,22 +129,38 @@ class AuthManager {
         }
 
         if (passwordField) {
-            passwordField.addEventListener('input', () => this.checkPasswordStrength());
-            passwordField.addEventListener('input', () => this.validateSignupForm());
+            passwordField.addEventListener('input', () => {
+                this.checkPasswordStrength();
+                this.validateSignupForm();
+            });
         }
 
         if (confirmPasswordField) {
-            confirmPasswordField.addEventListener('input', () => this.checkPasswordMatch());
-            confirmPasswordField.addEventListener('input', () => this.validateSignupForm());
+            confirmPasswordField.addEventListener('input', () => {
+                this.checkPasswordMatch();
+                this.validateSignupForm();
+            });
         }
 
         if (termsCheckbox) {
             termsCheckbox.addEventListener('change', () => this.validateSignupForm());
         }
 
+        // Add input listeners to all required fields
+        const requiredFields = ['fullname', 'username', 'email'];
+        requiredFields.forEach(fieldName => {
+            const field = document.getElementById(fieldName);
+            if (field) {
+                field.addEventListener('input', () => this.validateSignupForm());
+            }
+        });
+
         if (signupForm) {
             signupForm.addEventListener('submit', (e) => this.handleSignup(e));
         }
+
+        // Initial validation check
+        this.validateSignupForm();
     }
 
     handleSignup(e) {
@@ -161,8 +174,7 @@ class AuthManager {
             password: formData.get('password'),
             confirm_password: formData.get('confirm_password'),
             terms: formData.get('terms'),
-            newsletter: formData.get('newsletter'),
-            csrf_token: formData.get('csrf_token')
+            newsletter: formData.get('newsletter') ? 1 : 0
         };
 
         // Client-side validation
@@ -193,7 +205,6 @@ class AuthManager {
                 this.showMessage('An error occurred. Please try again.', 'error');
             })
             .finally(() => {
-                // Reset button
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalText;
             });
@@ -272,6 +283,8 @@ class AuthManager {
 
     checkPasswordStrength() {
         const passwordField = document.getElementById('password');
+        if (!passwordField) return;
+        
         const password = passwordField.value;
         
         const checks = {
@@ -303,7 +316,7 @@ class AuthManager {
         const confirmPasswordField = document.getElementById('confirm_password');
         const matchElement = document.getElementById('passwordMatch');
         
-        if (!matchElement || !passwordField || !confirmPasswordField) return;
+        if (!matchElement || !passwordField || !confirmPasswordField) return false;
 
         const password = passwordField.value;
         const confirmPassword = confirmPasswordField.value;
@@ -332,17 +345,26 @@ class AuthManager {
         const confirmPasswordField = document.getElementById('confirm_password');
         const termsCheckbox = document.getElementById('terms');
         const registerBtn = document.getElementById('registerBtn');
+        const fullnameField = document.getElementById('fullname');
+        const usernameField = document.getElementById('username');
+        const emailField = document.getElementById('email');
         
         if (!passwordField || !confirmPasswordField || !termsCheckbox || !registerBtn) return;
 
+        const fullname = fullnameField?.value?.trim() || '';
+        const username = usernameField?.value?.trim() || '';
+        const email = emailField?.value?.trim() || '';
         const password = passwordField.value;
         const confirmPassword = confirmPasswordField.value;
         const terms = termsCheckbox.checked;
         
         const passwordValidation = this.validatePassword(password);
         const passwordsMatch = password === confirmPassword && confirmPassword.length > 0;
+        const hasFullname = fullname.length >= 2;
+        const hasUsername = username.length >= 3;
+        const hasValidEmail = this.isValidEmail(email);
         
-        const isValid = passwordValidation.isValid && passwordsMatch && terms;
+        const isValid = hasFullname && hasUsername && hasValidEmail && passwordValidation.isValid && passwordsMatch && terms;
         
         registerBtn.disabled = !isValid;
     }
