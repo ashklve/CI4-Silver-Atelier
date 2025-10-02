@@ -33,7 +33,7 @@
             <div class="flex justify-between items-center h-16">
                <!-- Logo -->
                 <div class="flex-shrink-0">
-                    <a href="#" class="flex items-center space-x-2">
+                    <a href="<?= site_url('/') ?>" class="flex items-center space-x-2">
                         <div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
                             <img src="/images/salogo.png" alt="Silver Atelier Logo" class="w-full h-full object-cover">
                         </div>
@@ -47,17 +47,20 @@
                         <a href="#home" class="nav-link text-warm-brown hover:text-sage-green transition-colors duration-300 font-medium">Home</a>
                         <a href="#collections" class="nav-link text-warm-brown hover:text-sage-green transition-colors duration-300 font-medium">Collections</a>
                         <a href="#about" class="nav-link text-warm-brown hover:text-sage-green transition-colors duration-300 font-medium">About</a>
-                        <a href="#moodboard" class="nav-link text-warm-brown hover:text-sage-green transition-colors duration-300 font-medium">Mood Board</a>
-                        <a href="#roadmap" class="nav-link text-warm-brown hover:text-sage-green transition-colors duration-300 font-medium">Road Map</a>
+                        <a href="#blog" class="nav-link text-warm-brown hover:text-sage-green transition-colors duration-300 font-medium">Blog</a>
+                        <a href="#contact" class="nav-link text-warm-brown hover:text-sage-green transition-colors duration-300 font-medium">Contact</a>
                     </div>
                 </div>
+
                 
-                <!-- CTA Button -->
-                <div class="hidden md:block">
-                    <button class="bg-warm-brown text-light-cream px-6 py-2 rounded-full hover:bg-sage-green transition-all duration-300 transform hover:scale-105 font-medium">
-                        Shop Now
-                    </button>
-                </div>
+               <!-- CTA Button -->
+            <div class="hidden md:block">
+                <a href="<?= site_url('login') ?>" 
+                class="bg-warm-brown text-light-cream px-6 py-2 rounded-full hover:bg-sage-green transition-all duration-300 transform hover:scale-105 font-medium inline-block text-center">
+                    Login
+                </a>
+            </div>
+
                 
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
@@ -74,11 +77,12 @@
                 <a href="#home" class="block px-3 py-2 text-warm-brown hover:text-sage-green transition-colors duration-300">Home</a>
                 <a href="#collections" class="block px-3 py-2 text-warm-brown hover:text-sage-green transition-colors duration-300">Collections</a>
                 <a href="#about" class="block px-3 py-2 text-warm-brown hover:text-sage-green transition-colors duration-300">About</a>
-                <a href="#moodboard" class="block px-3 py-2 text-warm-brown hover:text-sage-green transition-colors duration-300">Mood Board</a>
-                <a href="#roadmap" class="block px-3 py-2 text-warm-brown hover:text-sage-green transition-colors duration-300">Road Map</a>
-                <button class="w-full mt-4 bg-warm-brown text-light-cream px-6 py-2 rounded-full hover:bg-sage-green transition-all duration-300">
-                    Shop Now
-                </button>
+                <a href="#blog" class="block px-3 py-2 text-warm-brown hover:text-sage-green transition-colors duration-300">Blog</a>
+                <a href="#contact" class="block px-3 py-2 text-warm-brown hover:text-sage-green transition-colors duration-300">Contact</a>
+                <a href="<?= site_url('login') ?>" 
+                class="block w-full mt-4 bg-warm-brown text-light-cream px-6 py-2 rounded-full hover:bg-sage-green transition-all duration-300 text-center font-medium">
+                Login
+                </a>
             </div>
         </div>
     </nav>
@@ -104,8 +108,8 @@
                         Explore Collection
                     </a>
                     
-                    <a href="/moodboard" class="border-2 border-warm-brown text-warm-brown px-8 py-4 rounded-full text-lg font-semibold hover:bg-warm-brown hover:text-light-cream transition-all duration-300 text-center">
-                        View Mooad Board
+                    <a href="/Blog" class="border-2 border-warm-brown text-warm-brown px-8 py-4 rounded-full text-lg font-semibold hover:bg-warm-brown hover:text-light-cream transition-all duration-300 text-center">
+                        View Blogs
                     </a>
                     </div>
 
