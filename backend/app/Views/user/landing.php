@@ -33,7 +33,7 @@
             <div class="flex justify-between items-center h-16">
                <!-- Logo -->
                 <div class="flex-shrink-0">
-                    <a href="#" class="flex items-center space-x-2">
+                    <a href="<?= site_url('/') ?>" class="flex items-center space-x-2">
                         <div class="w-8 h-8 rounded-full overflow-hidden flex-shrink-0">
                             <img src="/images/salogo.png" alt="Silver Atelier Logo" class="w-full h-full object-cover">
                         </div>
@@ -52,12 +52,14 @@
                     </div>
                 </div>
                 
-                <!-- CTA Button -->
-                <div class="hidden md:block">
-                    <button class="bg-warm-brown text-light-cream px-6 py-2 rounded-full hover:bg-sage-green transition-all duration-300 transform hover:scale-105 font-medium">
-                        Shop Now
-                    </button>
-                </div>
+               <!-- CTA Button -->
+            <div class="hidden md:block">
+                <a href="<?= site_url('login') ?>" 
+                class="bg-warm-brown text-light-cream px-6 py-2 rounded-full hover:bg-sage-green transition-all duration-300 transform hover:scale-105 font-medium inline-block text-center">
+                    Login
+                </a>
+            </div>
+
                 
                 <!-- Mobile menu button -->
                 <div class="md:hidden">
